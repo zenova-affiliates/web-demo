@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amnexora – Trending products, Cash on Delivery across Pakistan</title>
+<meta name="description" content="Amnexora is a Pakistan-based online store for smart gadgets, home essentials, kitchenware, beauty, fashion, fitness and travel. Cash on Delivery available.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f1f5f1; --surface:#fff; --ink:#10231f; --muted:#51655f;
+  --green:#0e5a45; --green-d:#0a4232; --gold:#ffb300; --line:#d5e0d9; --mint:#dcebe2;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1714;--surface:#14231e;--ink:#eaf3ee;--muted:#9bb1a8;--green:#3fbf94;--green-d:#2fa07a;--line:#25382f;--mint:#1a2e26}
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
+button{font:inherit;cursor:pointer}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:1rem}
+.logo{font:800 1.5rem var(--display);letter-spacing:-.03em;text-decoration:none}
+.logo b{color:var(--gold)}
+nav{display:flex;gap:1.5rem;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.cartbtn{background:var(--green);color:#fff;border:0;border-radius:99px;padding:.5rem 1rem;font-weight:700}
+.cartbtn span{background:var(--gold);color:#10231f;border-radius:99px;padding:0 .5rem;margin-left:.4rem}
+@media(max-width:640px){nav{display:none}}
+
+/* hero */
+.hero{padding:4rem 0 3rem}
+.hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:2rem;align-items:center}
+h1{font:800 clamp(2.4rem,6vw,4.6rem)/1 var(--display);letter-spacing:-.04em;max-width:13ch}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:46ch;margin:1.25rem 0 1.75rem}
+.btn{display:inline-block;background:var(--green);color:#fff;text-decoration:none;font-weight:700;border-radius:12px;padding:.85rem 1.4rem;border:0}
+.btn:hover{background:var(--green-d)}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);margin-left:.5rem}
+.stamp{justify-self:center;width:min(280px,70vw);aspect-ratio:1;border-radius:50%;background:var(--gold);color:#10231f;display:grid;place-content:center;text-align:center;padding:1.5rem;transform:rotate(-8deg);box-shadow:0 0 0 8px var(--bg),0 0 0 11px var(--gold);animation:land .7s cubic-bezier(.2,1.2,.4,1) both}
+.stamp strong{font:800 2.1rem/1 var(--display);letter-spacing:-.03em}
+.stamp span{font-weight:500;margin-top:.6rem}
+@keyframes land{from{transform:rotate(14deg) scale(1.35);opacity:0}}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.hero{padding-top:2.5rem}}
+
+/* shop */
+.shop{padding:2rem 0 4rem}
+h2{font:700 clamp(1.7rem,3.5vw,2.4rem)/1.1 var(--display);letter-spacing:-.03em}
+.sub{color:var(--muted);margin:.4rem 0 1.5rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:.4rem 1rem;font-weight:500}
+.chip[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.1rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.pic{aspect-ratio:1/.8;display:grid;place-items:center;font-size:3.6rem}
+.info{padding:.9rem 1rem 1rem;display:flex;flex-direction:column;gap:.15rem;flex:1}
+.cat{font-size:.85rem;color:var(--muted)}
+.name{font-weight:700;line-height:1.3}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.7rem}
+.price{font:700 1.1rem var(--display)}
+.add{background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:.4rem .8rem;font-weight:700;font-size:.9rem}
+.add:active{transform:scale(.94)}
+.note{font-size:.85rem;color:var(--muted);margin-top:1.25rem}
+
+/* why */
+.why{background:var(--green);color:#fff;padding:3.5rem 0}
+.why h2{color:#fff}
+.pts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-top:2rem}
+.pts h3{font:700 1.2rem var(--display);margin-bottom:.35rem;color:var(--gold)}
+.pts p{opacity:.92}
+@media(prefers-color-scheme:dark){.why{background:#0a2a20}}
+
+/* delivery */
+.deliver{padding:3.5rem 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem;counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;background:var(--mint);border-radius:14px;padding:1.2rem}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:700;margin-bottom:.6rem}
+.steps b{display:block}
+
+footer{border-top:1px solid var(--line);padding:2rem 0;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+
+/* cart */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:30}
+aside{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);background:var(--surface);z-index:40;padding:1.25rem;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s;visibility:hidden}
+body.open .scrim{opacity:1;pointer-events:auto}
+body.open aside{transform:none;visibility:visible}
+aside header{position:static;display:flex;justify-content:space-between;align-items:center;border:0;background:none;backdrop-filter:none;padding-bottom:.75rem}
+aside h2{font-size:1.4rem}
+.x{background:none;border:0;font-size:1.6rem;color:var(--ink);line-height:1}
+#lines{flex:1;overflow:auto;list-style:none;padding:0}
+#lines li{display:flex;justify-content:space-between;gap:.75rem;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.qty{display:flex;align-items:center;gap:.4rem;margin-top:.25rem}
+.qty button{width:1.7rem;height:1.7rem;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.empty{color:var(--muted);padding:1rem 0}
+.tot{display:flex;justify-content:space-between;font:700 1.2rem var(--display);padding:1rem 0 .25rem}
+.cod{font-size:.9rem;color:var(--muted);margin-bottom:.9rem}
+.wa{width:100%;text-align:center}
+.wa[aria-disabled=true]{opacity:.45;pointer-events:none}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">Amnexora<b>.</b></a>
+    <nav aria-label="Main">
+      <a href="#shop">Shop</a>
+      <a href="#why">Why Amnexora</a>
+      <a href="#delivery">How ordering works</a>
+    </nav>
+    <button class="cartbtn" id="open" aria-label="Open cart">Cart<span id="count">0</span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Trending finds for an easier life.</h1>
+        <p>Smart gadgets, kitchen helpers, beauty, fashion and fitness gear, all in one Pakistani store. Order today and pay when it reaches your door.</p>
+        <a class="btn" href="#shop">Start shopping</a>
+        <a class="btn alt" href="#delivery">How ordering works</a>
+      </div>
+      <div class="stamp" aria-label="Cash on Delivery available">
+        <strong>Cash on Delivery</strong>
+        <span>Pay when your order arrives</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop" id="shop">
+    <div class="wrap">
+      <h2>Shop by category</h2>
+      <p class="sub">Eight departments, one cart.</p>
+      <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+      <div class="grid" id="grid"></div>
+      <p class="note">Demo products and prices, shown to illustrate the store layout. Real catalogue and photos go in here.</p>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap">
+      <h2>Quality without compromise.</h2>
+      <div class="pts">
+        <div><h3>Affordable prices</h3><p>Good products should not cost a fortune. We keep prices fair across every category.</p></div>
+        <div><h3>Flexible payments</h3><p>Pay on delivery or choose another option at checkout. You decide what feels safe.</p></div>
+        <div><h3>Reliable service</h3><p>Questions about an order? Message us and a real person replies.</p></div>
+        <div><h3>One roof, eight categories</h3><p>Gadgets to gym gear, so you stop hunting across ten different shops.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="deliver" id="delivery">
+    <div class="wrap">
+      <h2>Ordering takes four steps</h2>
+      <ol class="steps">
+        <li><b>Pick your items</b>Add anything you like to the cart.</li>
+        <li><b>Send your order</b>Tap the button in the cart to send it to us on WhatsApp.</li>
+        <li><b>We confirm</b>We check stock and confirm your address and delivery time.</li>
+        <li><b>Pay on arrival</b>Inspect your parcel, then pay the rider in cash.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong>Amnexora</strong><br>Online store, Pakistan</div>
+    <div>WhatsApp: 03XX-XXXXXXX<br>Email: hello@amnexora.example</div>
+    <div>Demo website prepared by DigiFront Door</div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside id="cart" aria-label="Your cart" aria-hidden="true">
+  <header><h2>Your cart</h2><button class="x" id="close" aria-label="Close cart">&times;</button></header>
+  <ul id="lines"></ul>
+  <div class="tot"><span>Total</span><span id="total">Rs 0</span></div>
+  <p class="cod">Cash on Delivery. You pay when the order arrives.</p>
+  <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener" aria-disabled="true">Send order on WhatsApp</a>
+</aside>
+
+<script>
+// Replace with Amnexora's real WhatsApp number in international format, e.g. "923001234567"
+var WHATSAPP = "923000000000";
+
+var CATS = ["Smart Gadgets","Home Essentials","Kitchenware","Beauty & Care","Men’s Collection","Women’s Collection","Fitness","Travel"];
+var P = [
+ ["Wireless Earbuds",0,3499,"🎧","#cfe3f5"],["Smart Watch",0,5999,"⌚","#d9d3f2"],
+ ["LED Desk Lamp",1,1899,"💡","#fbe9b8"],["Storage Organiser Set",1,1299,"🧺","#e3efd3"],
+ ["Non-stick Pan",2,2299,"🍳","#f8d9cf"],["Glass Lunch Box",2,1499,"🍱","#d4ede6"],
+ ["Vitamin C Serum",3,1599,"🧴","#fde0e8"],["Hair Dryer",3,2799,"💇","#e9dcf5"],
+ ["Casual Polo Shirt",4,1799,"👕","#d3e2f3"],["Leather Wallet",4,1299,"👛","#e8d9c8"],
+ ["Embroidered Lawn Suit",5,3299,"👗","#f6d5e3"],["Tote Handbag",5,2499,"👜","#f7e0c4"],
+ ["Yoga Mat",6,1999,"🧘","#d6ecd2"],["Resistance Bands",6,999,"💪","#fbd9d0"],
+ ["Travel Neck Pillow",7,1199,"✈️","#d2e5f2"],["Cabin Luggage Bag",7,6499,"🧳","#e0dcf3"]
+];
+var cart = {}, active = -1;
+var $ = function(id){return document.getElementById(id)};
+var rs = function(n){return "Rs " + n.toLocaleString("en-PK")};
+
+function chips(){
+  var h = '<button class="chip" aria-pressed="true" data-c="-1">All</button>';
+  CATS.forEach(function(c,i){h += '<button class="chip" aria-pressed="false" data-c="'+i+'">'+c+'</button>'});
+  $("chips").innerHTML = h;
+}
+function grid(){
+  var h = "";
+  P.forEach(function(p,i){
+    if(active > -1 && p[1] !== active) return;
+    h += '<article class="card"><div class="pic" style="background:'+p[4]+'" aria-hidden="true">'+p[3]+'</div>'+
+      '<div class="info"><span class="cat">'+CATS[p[1]]+'</span><span class="name">'+p[0]+'</span>'+
+      '<div class="row"><span class="price">'+rs(p[2])+'</span><button class="add" data-i="'+i+'">Add to cart</button></div></div></article>';
+  });
+  $("grid").innerHTML = h;
+}
+function render(){
+  var ids = Object.keys(cart), n = 0, t = 0, h = "", msg = "Hello Amnexora, I would like to order:%0A";
+  ids.forEach(function(i){
+    var q = cart[i], p = P[i]; n += q; t += q * p[2];
+    h += '<li><div><b>'+p[0]+'</b><div class="qty"><button data-m="'+i+'" aria-label="Remove one">&minus;</button>'+q+
+      '<button data-a="'+i+'" aria-label="Add one">+</button></div></div><span>'+rs(q*p[2])+'</span></li>';
+    msg += encodeURIComponent(q + " x " + p[0] + " (" + rs(q*p[2]) + ")") + "%0A";
+  });
+  $("lines").innerHTML = h || '<li class="empty">Your cart is empty. Add something you like.</li>';
+  $("count").textContent = n;
+  $("total").textContent = rs(t);
+  msg += encodeURIComponent("Total: " + rs(t) + " (Cash on Delivery)");
+  var wa = $("wa");
+  wa.href = ids.length ? "https://wa.me/" + WHATSAPP + "?text=" + msg : "#";
+  wa.setAttribute("aria-disabled", ids.length ? "false" : "true");
+}
+function toggle(o){
+  document.body.classList.toggle("open", o);
+  $("cart").setAttribute("aria-hidden", !o);
+  if(o) $("close").focus(); else $("open").focus();
+}
+document.addEventListener("click", function(e){
+  var t = e.target;
+  if(t.dataset.c !== undefined){
+    active = +t.dataset.c;
+    document.querySelectorAll(".chip").forEach(function(c){c.setAttribute("aria-pressed", c === t)});
+    grid();
+  }
+  if(t.dataset.i !== undefined){cart[t.dataset.i] = (cart[t.dataset.i]||0) + 1; render()}
+  if(t.dataset.a !== undefined){cart[t.dataset.a]++; render()}
+  if(t.dataset.m !== undefined){if(--cart[t.dataset.m] < 1) delete cart[t.dataset.m]; render()}
+});
+$("open").onclick = function(){toggle(true)};
+$("close").onclick = $("scrim").onclick = function(){toggle(false)};
+document.addEventListener("keydown", function(e){if(e.key === "Escape") toggle(false)});
+chips(); grid(); render();
+</script>
+</body>
+</html>
